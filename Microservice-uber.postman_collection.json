@@ -1,0 +1,295 @@
+{
+	"info": {
+		"_postman_id": "7772ceac-c223-4e59-b134-5e96a44bb1a3",
+		"name": "Microservice-uber",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "25843991"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "register user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"test_user\",\r\n    \"email\": \"test_user_email\",\r\n    \"password\":\"test_password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base}}/user/register"
+					},
+					"response": []
+				},
+				{
+					"name": "login user",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"test_user_email\",\r\n    \"password\":\"test_password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base}}/user/login"
+					},
+					"response": []
+				},
+				{
+					"name": "getProfile user",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YmNkNzM4YjMwMDUzN2U3YzBmNjFiZCIsImlhdCI6MTc0MDQyOTEyMCwiZXhwIjoxNzQwNDMyNzIwfQ.89v-JVB-oOFRgWv7_feSpYOwWm8bu6sdx-VMUDqUsrk",
+								"type": "text"
+							}
+						],
+						"url": "{{base}}/user/profile"
+					},
+					"response": []
+				},
+				{
+					"name": "logout user",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YmNkNzM4YjMwMDUzN2U3YzBmNjFiZCIsImlhdCI6MTc0MDQyOTEyMCwiZXhwIjoxNzQwNDMyNzIwfQ.89v-JVB-oOFRgWv7_feSpYOwWm8bu6sdx-VMUDqUsrk",
+								"type": "text"
+							}
+						],
+						"url": "{{base}}/user/logout"
+					},
+					"response": []
+				},
+				{
+					"name": "{{base}}/user/accepted-ride",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YmNkNzM4YjMwMDUzN2U3YzBmNjFiZCIsImlhdCI6MTc0MDQ4MDMzNSwiZXhwIjoxNzQwNDgzOTM1fQ.XMtYD51GJSg4aCldw3GharSmNkoS08ZnFeFtYolIZkI",
+								"type": "text"
+							}
+						],
+						"url": "{{base}}/user/accepted-ride"
+					},
+					"response": []
+				}
+			],
+			"description": "StartFragment\n\n## **User Service (Authentication & Ride Tracking)**\n\nHandles user **registration, authentication, and ride tracking**.\n\n**1.Register User (****`POST /user/register`****)**\n\n- Allows a new user to sign up with **name, email, and password**.\n    \n- jsonCopyEdit{ \"name\": \"John Doe\", \"email\": \"[johndoe@example.com](https://mailto:johndoe@example.com)\", \"password\": \"securepassword\"}\n    \n- **Response**: User details with authentication token.\n    \n\n2\\. **Login User (****`POST /user/login`****)**\n\n- Authenticates users using **email and password**, returning a JWT token.\n    \n\n**3.Get User Profile (****`GET /user/profile`****)**\n\n- Fetches user details (requires authentication).\n    \n\n4.**Logout User (****`GET /user/logout`****)**\n\n- Logs out the user by invalidating the session.\n    \n\n**5.Check Accepted Ride (****`GET /user/accepted-ride`****)**\n\n- Retrieves ride details that the user has been assigned."
+		},
+		{
+			"name": "captain",
+			"item": [
+				{
+					"name": "login captain",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"test_captain_email\",\r\n    \"password\":\"test_password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base}}/captain/login"
+					},
+					"response": []
+				},
+				{
+					"name": "register captain",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"test_captain\",\r\n    \"email\":\"test_captain_email\",\r\n    \"password\":\"test_password\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base}}/captain/register"
+					},
+					"response": []
+				},
+				{
+					"name": "profile captain",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YmNmMjFkNGZlZjk1MTE2MjllMzNlNiIsImlhdCI6MTc0MDQzNjA5NywiZXhwIjoxNzQwNDM5Njk3fQ.zhpL-vsnG1OqiooFH1lvbJAyn_x_IWWB1IIN6YqCJQs",
+								"type": "text"
+							}
+						],
+						"url": "{{base}}/captain/profile"
+					},
+					"response": []
+				},
+				{
+					"name": "logout captain",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YmNmMjFkNGZlZjk1MTE2MjllMzNlNiIsImlhdCI6MTc0MDQzNjA5NywiZXhwIjoxNzQwNDM5Njk3fQ.zhpL-vsnG1OqiooFH1lvbJAyn_x_IWWB1IIN6YqCJQs",
+								"type": "text"
+							}
+						],
+						"url": "{{base}}/captain/logout"
+					},
+					"response": []
+				},
+				{
+					"name": "toggle-availability captain",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YmNmMjFkNGZlZjk1MTE2MjllMzNlNiIsImlhdCI6MTc0MDQzNjU2MSwiZXhwIjoxNzQwNDQwMTYxfQ.Bpkd12Vbt6PmTk_f1vhBcBTvrTKPgkV4okSzzn_qD48",
+								"type": "text"
+							}
+						],
+						"url": "{{base}}/captain/toggle-availability"
+					},
+					"response": []
+				},
+				{
+					"name": "new-ride",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YmNmMjFkNGZlZjk1MTE2MjllMzNlNiIsImlhdCI6MTc0MDQ4MDExOSwiZXhwIjoxNzQwNDgzNzE5fQ.QgEVsDELJwV-rsM91eedYZ5ZyQRxqDTnBDbDBz8m-Xs",
+								"type": "text"
+							}
+						],
+						"url": "{{base}}/captain/new-ride"
+					},
+					"response": []
+				}
+			],
+			"description": "StartFragment\n\n## **Captain Service (Ride Management & Availability)**\n\nHandles **captain registration, authentication, and ride acceptance**.\n\n1.**Register Captain (****`POST /captain/register`****)**\n\n- Allows captains to sign up with **name, email, and password**.\n    \n\n**2.Login Captain (****`POST /captain/login`****)**\n\n- Authenticates captains using email and password.\n    \n\n**3.Get Captain Profile (****`GET /captain/profile`****)**\n\n- Retrieves captain details (requires authentication).\n    \n\n**4.Logout Captain (****`GET /captain/logout`****)**\n\n- Logs out the captain and clears session data.\n    \n\n**5.Toggle Availability (****`PATCH /captain/toggle-availability`****)**\n\n- Updates captain's availability for rides."
+		},
+		{
+			"name": "ride",
+			"item": [
+				{
+					"name": "accept-ride",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YmNmMjFkNGZlZjk1MTE2MjllMzNlNiIsImlhdCI6MTc0MDQ4MDExOSwiZXhwIjoxNzQwNDgzNzE5fQ.QgEVsDELJwV-rsM91eedYZ5ZyQRxqDTnBDbDBz8m-Xs",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base}}/ride/accept-ride?rideId=67bda0ed14d67bb418da115d",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"ride",
+								"accept-ride"
+							],
+							"query": [
+								{
+									"key": "rideId",
+									"value": "67bda0ed14d67bb418da115d"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create-ride",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YmNkNzM4YjMwMDUzN2U3YzBmNjFiZCIsImlhdCI6MTc0MDQ4MDMzNSwiZXhwIjoxNzQwNDgzOTM1fQ.XMtYD51GJSg4aCldw3GharSmNkoS08ZnFeFtYolIZkI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"pickup\": \"harshal home\",\r\n    \"destination\": \"pune\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base}}/ride/create-ride"
+					},
+					"response": []
+				}
+			],
+			"description": "StartFragment\n\n## **Ride Service (Ride Booking & Acceptance)**\n\nHandles **ride creation, assignment, and acceptance**.\n\n**1.Create Ride (****`POST /ride/create-ride`****)**\n\n- Allows users to book a ride by specifying **pickup** and **destination**.\n    \n- Request body:{ \"pickup\": \"Main Street\", \"destination\": \"Notmain Street\"}\n    \n\n**2.Accept Ride (****`PUT /ride/accept-ride?rideId=RID_ID`****)**\n\n- Captains accept ride requests using the **ride ID** in the query parameter."
+		}
+	]
+}
