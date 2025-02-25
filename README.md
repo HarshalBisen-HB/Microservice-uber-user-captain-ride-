@@ -110,4 +110,5 @@ module.exports = mongoose.model('Ride', rideSchema);
 
 ## 📖 Postman Documentation
 - API collection is included (`Microservice-uber.postman_collection.json`).
+  
 
